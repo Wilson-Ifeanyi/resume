@@ -94,10 +94,15 @@
     }
 
     .divider {
-      width: min(1564px, calc(100% - 8.1rem));
+      width: min(1100px, calc(100% - 2rem));
       margin: 0 auto;
       height: 1px;
       background: var(--line);
+    }
+
+    section:not(#intro) {
+      max-width: 1100px;
+      margin: 0 auto;
     }
 
     #intro {
@@ -114,12 +119,12 @@
     }
 
     .eyebrow {
-      margin: 0 0 1rem;
+      margin: 0 0 3rem;
       color: var(--accent);
       text-transform: uppercase;
       letter-spacing: 0.14em;
-      font-size: 0.75rem;
-      font-weight: 700;
+      font-size: 1.1rem;
+      font-weight: 500;
     }
 
     h1, h2, h3, h4 {
@@ -159,10 +164,10 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 0.8rem 1.6rem;
+      padding: 1.15rem 2.8rem;
       border-radius: 2px;
       text-decoration: none;
-      font-size: 0.86rem;
+      font-size: 1.1rem;
       font-weight: 500;
       letter-spacing: 0.03em;
       transition: all 0.2s ease;
@@ -567,7 +572,7 @@
 
     @media (max-width: 560px) {
       main { width: min(100% - 2rem, 1564px); }
-      .divider { width: min(100% - 2rem, 1564px); }
+      .divider { width: min(100% - 2rem, 1100px); }
       .hero-name { font-size: clamp(3.5rem, 14vw, 5rem); }
       .hero-copy { margin-top: 2rem; }
       #intro { padding-top: calc(var(--nav-h) + 1.5rem); }
