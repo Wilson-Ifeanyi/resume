@@ -1,227 +1,779 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Ifeanyi Wilson Okafor — AWS Cloud Infrastructure & Security Engineer with 15+ years of experience." />
-  <title>Ifeanyi Wilson Okafor | AWS Cloud Infrastructure & Security</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ifeanyi Wilson Okafor — AWS Cloud Infrastructure & Security Architect</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f5f7fb;
+      --bg-card: #ffffff;
+      --text-primary: #1a1d2e;
+      --text-secondary: #5c6b8a;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --border: #dae1ef;
+      --nav-height: 72px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    /* ── Navigation ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      background: rgba(245, 247, 251, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid transparent;
+      z-index: 100;
+      transition: border-color 0.3s;
+    }
+    nav.scrolled { border-color: var(--border); }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.25rem;
+      color: var(--text-primary);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text-primary); }
+
+    /* ── Sections ── */
+    section {
+      padding: 6rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-divider {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ── Intro ── */
+    #intro {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: var(--nav-height);
+    }
+
+    .intro-eyebrow {
+      font-size: 0.8125rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+
+    .intro-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+    }
+    .intro-name em { font-style: italic; color: var(--accent); }
+
+    .intro-tagline {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: var(--text-secondary);
+      max-width: 520px;
+      line-height: 1.75;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+    }
+
+    .intro-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    /* ── Buttons ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.75rem;
+      border-radius: 2px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
+    }
+
+    .btn-primary { background: var(--text-primary); color: white; }
+    .btn-primary:hover { background: var(--accent); transform: translateY(-1px); }
+
+    .btn-outline { background: transparent; color: var(--text-primary); border: 1.5px solid var(--border); }
+    .btn-outline:hover { border-color: var(--text-primary); transform: translateY(-1px); }
+
+    /* ── Section Headers ── */
+    .section-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 3rem;
+    }
+
+    /* ── About ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .about-text p {
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+      font-weight: 300;
+    }
+    .about-text p:last-child { margin-bottom: 0; }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .stat-card {
+      padding: 1.5rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .stat-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+
+    .stat-number {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.25rem;
+      color: var(--text-primary);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+    .stat-label { font-size: 0.8125rem; color: var(--text-secondary); }
+
+    /* ── Timeline ── */
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 8px; bottom: 0;
+      width: 1px;
+      background: var(--border);
+    }
+
+    .timeline-item { position: relative; padding-bottom: 3rem; }
+    .timeline-item:last-child { padding-bottom: 0; }
+
+    .timeline-dot {
+      position: absolute;
+      left: -2rem; top: 8px;
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      background: var(--accent);
+      transform: translateX(-4px);
+    }
+
+    .timeline-period {
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-role {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.375rem;
+      color: var(--text-primary);
+      margin-bottom: 0.25rem;
+      letter-spacing: -0.01em;
+    }
+
+    .timeline-company { font-size: 0.9375rem; color: var(--text-secondary); margin-bottom: 1rem; }
+
+    .timeline-desc {
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      max-width: 620px;
+      font-weight: 300;
+    }
+
+    .timeline-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+
+    .tag {
+      font-size: 0.75rem;
+      padding: 0.25rem 0.75rem;
+      background: var(--accent-light);
+      color: var(--accent);
+      border-radius: 2px;
+      letter-spacing: 0.02em;
+    }
+
+    /* ── Skills ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .skill-group {
+      padding: 1.75rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .skill-group:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.06); }
+
+    .skill-group-title {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .skill-list { list-style: none; }
+
+    .skill-list li {
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+      padding: 0.375rem 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 0.625rem;
+    }
+    .skill-list li:last-child { border-bottom: none; }
+    .skill-list li::before {
+      content: '';
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    /* ── Education ── */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .edu-card {
+      padding: 2rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .edu-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+
+    .edu-year {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .edu-degree {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.25rem;
+      color: var(--text-primary);
+      margin-bottom: 0.375rem;
+      letter-spacing: -0.01em;
+    }
+
+    .edu-school { font-size: 0.9375rem; color: var(--text-secondary); margin-bottom: 0.75rem; }
+
+    .edu-desc {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    /* ── Contact ── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .contact-info p {
+      color: var(--text-secondary);
+      line-height: 1.8;
+      font-weight: 300;
+      margin-bottom: 2rem;
+    }
+
+    .contact-links { display: flex; flex-direction: column; gap: 0.75rem; }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.9375rem;
+      transition: color 0.2s;
+    }
+    .contact-link:hover { color: var(--text-primary); }
+
+    .contact-link-icon {
+      width: 32px; height: 32px;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 0.875rem;
+    }
+
+    /* ── Form ── */
+    .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    .form-group { display: flex; flex-direction: column; gap: 0.375rem; }
+
+    .form-group label {
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      padding: 0.75rem 1rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      font-family: inherit;
+      font-size: 0.9375rem;
+      color: var(--text-primary);
+      transition: border-color 0.2s;
+      outline: none;
+      resize: none;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus { border-color: var(--accent); }
+
+    .form-group select {
+      appearance: none;
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235c6b8a' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem;
+    }
+
+    .form-success {
+      display: none;
+      padding: 1rem;
+      background: var(--accent-light);
+      border: 1px solid var(--accent);
+      border-radius: 2px;
+      color: var(--accent);
+      font-size: 0.9375rem;
+      text-align: center;
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 0.8125rem;
+    }
+
+    /* ── Animations ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .fade-up.d1 { transition-delay: 0.1s; }
+    .fade-up.d2 { transition-delay: 0.2s; }
+    .fade-up.d3 { transition-delay: 0.3s; }
+    .fade-up.d4 { transition-delay: 0.4s; }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .about-grid,
+      .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .edu-grid { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
 </head>
 <body>
-  <header class="nav-wrap" id="top">
-    <nav class="nav container">
-      <a class="brand" href="#top" aria-label="Ifeanyi Wilson Okafor home">IWO<span>.</span></a>
-      <button class="menu" aria-label="Open navigation menu" aria-expanded="false">☰</button>
-      <div class="links">
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#expertise">Expertise</a>
-        <a href="#projects">Projects</a>
-        <a href="#education">Education</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </nav>
-  </header>
 
-  <main>
-    <section class="hero container">
-      <div class="hero-copy">
-        <p class="eyebrow">AWS CLOUD INFRASTRUCTURE • CLOUD SECURITY • DEVSECOPS</p>
-        <h1>Ifeanyi Wilson<br><span>Okafor</span></h1>
-        <p class="lead">Senior Cloud Security & Infrastructure Architect with 15+ years of experience spanning AWS, DevOps/DevSecOps, CI/CD, cloud modernization, and enterprise technology.</p>
-        <div class="hero-actions">
-          <a class="btn primary" href="#experience" aria-label="Explore my experience">Explore my experience</a>
-          <a class="btn ghost" href="#contact" aria-label="Get in touch">Get in touch</a>
-          <a class="btn pdf-download" href="resume.pdf" download aria-label="Download resume as PDF">
-            <span>📄</span> Download PDF
-          </a>
-        </div>
-        <div class="badges">
-          <span>United Airlines</span>
-          <span>U.S. Navy Veteran</span>
-          <span>MS Cybersecurity</span>
-        </div>
-      </div>
-      <div class="hero-card">
-        <div class="orb"></div>
-        <div class="terminal">
-          <div class="dots"><i></i><i></i><i></i></div>
-          <p><span>$</span> aws sts get-caller-identity</p>
-          <p class="muted">{</p>
-          <p class="json">&nbsp;&nbsp;"focus": "cloud-security",</p>
-          <p class="json">&nbsp;&nbsp;"platform": "AWS",</p>
-          <p class="json">&nbsp;&nbsp;"delivery": "DevSecOps",</p>
-          <p class="json">&nbsp;&nbsp;"experience": "15+ years"</p>
-          <p class="muted">}</p>
-        </div>
-      </div>
-    </section>
+<!-- Navigation -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#intro" class="nav-logo">Ifeanyi Okafor</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#expertise">Expertise</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
 
-    <section class="section" id="about">
-      <div class="container two-col">
-        <div>
-          <p class="eyebrow">01 / ABOUT</p>
-          <h2>Infrastructure built with security in mind.</h2>
-        </div>
-        <div class="prose">
-          <p>I design, architect, and optimize cloud infrastructure on AWS with a focus on security, scalability, and operational excellence. My background spans enterprise technology, cloud migration, DevSecOps, and infrastructure as code.</p>
-          <p>At United Airlines, I lead infrastructure and TechOps initiatives across AWS. As a consultant for ESPN, I architect cloud solutions for enterprise systems. With deep experience from Northrop Grumman, Microsoft, and beyond, I combine strategic thinking with hands-on engineering.</p>
-          <p>I'm passionate about secure-by-default infrastructure, CI/CD automation, and building systems that scale reliably.</p>
-        </div>
-      </div>
-    </section>
+<!-- ── Intro ── -->
+<section id="intro">
+  <p class="intro-eyebrow fade-up">AWS Cloud Infrastructure • Security • DevSecOps</p>
+  <h1 class="intro-name fade-up d1">Ifeanyi <em>Okafor</em></h1>
+  <p class="intro-tagline fade-up d2">Senior Cloud Security & Infrastructure Architect with 15+ years of experience spanning AWS, DevOps/DevSecOps, CI/CD, cloud modernization, and enterprise technology.</p>
+  <div class="intro-cta fade-up d3">
+    <a href="#contact" class="btn btn-primary">Get in touch</a>
+    <a href="#experience" class="btn btn-outline">View experience</a>
+  </div>
+</section>
 
-    <section class="section alt" id="experience">
-      <div class="container">
-        <p class="eyebrow">02 / EXPERIENCE</p>
-        <h2>Career timeline</h2>
-        <div class="timeline">
-          <article class="job">
-            <div class="date">03/2022 — PRESENT</div>
-            <div>
-              <h3>United Airlines</h3>
-              <h4>Infrastructure Architect / DevOps Engineer</h4>
-              <p>Cloud infrastructure and TechOps across AWS. Infrastructure as code with CloudFormation and Terraform. CI/CD pipeline design and optimization with Harness. Security controls, IAM policies, and compliance automation.</p>
-            </div>
-          </article>
-          <article class="job">
-            <div class="date">10/2019 — PRESENT</div>
-            <div>
-              <h3>ESPN</h3>
-              <h4>AWS Solutions Architect — Consultant</h4>
-              <p>AWS architecture and cloud engineering across enterprise e-commerce and streaming platforms. Lambda, ECS/Fargate, RDS, API Gateway, and event-driven architectures. Security architecture and least-privilege IAM design.</p>
-            </div>
-          </article>
-          <article class="job">
-            <div class="date">07/2016 — 03/2020</div>
-            <div>
-              <h3>Northrop Grumman</h3>
-              <h4>Solutions Architect</h4>
-              <p>Solutions architecture and enterprise technology delivery in a complex, regulated environment. Cloud modernization strategy, infrastructure assessments, and technology leadership.</p>
-            </div>
-          </article>
-          <article class="job">
-            <div class="date">03/2011 — 07/2016</div>
-            <div>
-              <h3>Microsoft</h3>
-              <h4>Senior Business Analyst / Project Manager</h4>
-              <p>Technology delivery, analysis, stakeholder coordination, and program management. Led cross-functional teams and drove enterprise technology initiatives.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
+<div class="section-divider"></div>
 
-    <section class="section" id="expertise">
-      <div class="container">
-        <p class="eyebrow">03 / EXPERTISE</p>
-        <h2>What I bring</h2>
-        <div class="cards">
-          <div class="card">
-            <span>01</span>
-            <h3>Cloud Architecture</h3>
-            <p>AWS infrastructure design, modernization, serverless architectures, containers, networking and enterprise integration. Multi-account strategy, disaster recovery, and cost optimization.</p>
-          </div>
-          <div class="card">
-            <span>02</span>
-            <h3>Cloud Security</h3>
-            <p>IAM, trust policies, least-privilege access, secure deployment patterns, encryption, TLS, security controls and operational hardening. Compliance automation and security posture management.</p>
-          </div>
-          <div class="card">
-            <span>03</span>
-            <h3>DevSecOps</h3>
-            <p>Harness CI/CD, infrastructure as code, automated delivery, build pipelines, deployment troubleshooting and security integration. Container security and vulnerability scanning.</p>
-          </div>
-          <div class="card">
-            <span>04</span>
-            <h3>Cloud Operations</h3>
-            <p>Production troubleshooting across Lambda, ECS/Fargate, ECR, API Gateway, EventBridge, SNS/SQS, DynamoDB and observability. Monitoring, logging, and incident response.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section alt" id="projects">
-      <div class="container">
-        <p class="eyebrow">04 / SELECTED CLOUD WORK</p>
-        <h2>Technology landscape</h2>
-        <div class="tech-grid">
-          <span>AWS</span>
-          <span>IAM</span>
-          <span>CloudFormation</span>
-          <span>Terraform</span>
-          <span>Harness</span>
-          <span>Lambda</span>
-          <span>ECS / Fargate</span>
-          <span>EKS / Kubernetes</span>
-          <span>API Gateway</span>
-          <span>EventBridge</span>
-          <span>SNS / SQS</span>
-          <span>DynamoDB</span>
-          <span>RDS / Aurora</span>
-          <span>S3</span>
-          <span>CloudFront</span>
-          <span>VPC & Networking</span>
-          <span>Security Groups</span>
-          <span>WAF</span>
-          <span>Secrets Manager</span>
-          <span>KMS</span>
-          <span>CloudWatch</span>
-          <span>X-Ray</span>
-          <span>Git / GitHub</span>
-          <span>Docker</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="education">
-      <div class="container two-col">
-        <div>
-          <p class="eyebrow">05 / EDUCATION</p>
-          <h2>Continuous learning.</h2>
-        </div>
-        <div class="education-card">
-          <h3>Master of Science — Cybersecurity</h3>
-          <p>Concentration in cloud security, encryption, threat analysis, and enterprise defense strategies.</p>
-          <h3>Bachelor of Science — Computer Science</h3>
-          <p>Foundation in software engineering, systems design, and technology fundamentals.</p>
-          <h3>AWS Certifications</h3>
-          <p>Solutions Architect Professional, DevOps Engineer Professional, Security Specialty, and other AWS credentials.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section contact" id="contact">
-      <div class="container contact-box">
-        <div>
-          <p class="eyebrow">06 / CONTACT</p>
-          <h2>Let's connect.</h2>
-          <p>For cloud infrastructure, security engineering, DevSecOps, or consulting opportunities — reach out.</p>
-        </div>
-        <div class="contact-links">
-          <a href="mailto:ifeanyi@example.com" class="contact-link" aria-label="Send email">
-            <span>✉</span> Email
-          </a>
-          <a href="https://linkedin.com/in/ifeanyi" target="_blank" rel="noopener noreferrer" class="contact-link" aria-label="Visit LinkedIn profile">
-            <span>in</span> LinkedIn
-          </a>
-          <a href="https://github.com/Wilson-Ifeanyi" target="_blank" rel="noopener noreferrer" class="contact-link" aria-label="Visit GitHub profile">
-            <span>⚙</span> GitHub
-          </a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <span>© 2026 Ifeanyi Wilson Okafor</span>
-      <a href="#top" aria-label="Back to top">Back to top ↑</a>
+<!-- ── About ── -->
+<section id="about">
+  <p class="section-label fade-up">About</p>
+  <h2 class="section-title fade-up d1">Infrastructure built with security in mind.</h2>
+  <div class="about-grid">
+    <div class="about-text fade-up d2">
+      <p>I design, architect, and optimize cloud infrastructure on AWS with a focus on security, scalability, and operational excellence. My background spans enterprise technology, cloud migration, DevSecOps, and infrastructure as code.</p>
+      <p>At United Airlines, I lead infrastructure and TechOps initiatives across AWS. As a consultant for ESPN, I architect cloud solutions for enterprise systems. With deep experience from Northrop Grumman, Microsoft, and beyond, I combine strategic thinking with hands-on engineering.</p>
+      <p>I'm passionate about secure-by-default infrastructure, CI/CD automation, and building systems that scale reliably.</p>
     </div>
-  </footer>
-  <script src="script.js"></script>
+    <div class="about-stats fade-up d3">
+      <div class="stat-card">
+        <div class="stat-number">15+</div>
+        <div class="stat-label">Years of experience</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">AWS</div>
+        <div class="stat-label">Primary platform</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">10+</div>
+        <div class="stat-label">Enterprise clients</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">99.9%</div>
+        <div class="stat-label">Availability focus</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ── Experience ── -->
+<section id="experience">
+  <p class="section-label fade-up">Experience</p>
+  <h2 class="section-title fade-up d1">Where I've worked</h2>
+  <div class="timeline">
+
+    <div class="timeline-item fade-up d1">
+      <div class="timeline-dot"></div>
+      <p class="timeline-period">March 2022 — Present</p>
+      <h3 class="timeline-role">Infrastructure Architect / DevOps Engineer</h3>
+      <p class="timeline-company">United Airlines · Houston, TX</p>
+      <p class="timeline-desc">Lead cloud infrastructure and TechOps across AWS. Infrastructure as code with CloudFormation and Terraform. CI/CD pipeline design with Harness. Security controls, IAM policies, and compliance automation.</p>
+      <div class="timeline-tags">
+        <span class="tag">AWS</span>
+        <span class="tag">CloudFormation</span>
+        <span class="tag">Harness CI/CD</span>
+        <span class="tag">IAM</span>
+        <span class="tag">DevSecOps</span>
+      </div>
+    </div>
+
+    <div class="timeline-item fade-up d2">
+      <div class="timeline-dot"></div>
+      <p class="timeline-period">October 2019 — Present</p>
+      <h3 class="timeline-role">AWS Solutions Architect — Consultant</h3>
+      <p class="timeline-company">ESPN · Remote</p>
+      <p class="timeline-desc">AWS architecture and cloud engineering across enterprise e-commerce and streaming platforms. Lambda, ECS/Fargate, RDS, API Gateway, and event-driven architectures. Security architecture and least-privilege IAM design.</p>
+      <div class="timeline-tags">
+        <span class="tag">AWS</span>
+        <span class="tag">Lambda</span>
+        <span class="tag">ECS/Fargate</span>
+        <span class="tag">Architecture</span>
+        <span class="tag">Security</span>
+      </div>
+    </div>
+
+    <div class="timeline-item fade-up d3">
+      <div class="timeline-dot"></div>
+      <p class="timeline-period">July 2016 — March 2020</p>
+      <h3 class="timeline-role">Solutions Architect</h3>
+      <p class="timeline-company">Northrop Grumman · McLean, VA</p>
+      <p class="timeline-desc">Solutions architecture and enterprise technology delivery in a complex, regulated environment. Cloud modernization strategy, infrastructure assessments, and technology leadership.</p>
+      <div class="timeline-tags">
+        <span class="tag">Architecture</span>
+        <span class="tag">Cloud Strategy</span>
+        <span class="tag">Enterprise</span>
+      </div>
+    </div>
+
+    <div class="timeline-item fade-up d4">
+      <div class="timeline-dot"></div>
+      <p class="timeline-period">March 2011 — July 2016</p>
+      <h3 class="timeline-role">Senior Business Analyst / Project Manager</h3>
+      <p class="timeline-company">Microsoft · Puget Sound, WA</p>
+      <p class="timeline-desc">Technology delivery, analysis, stakeholder coordination, and program management. Led cross-functional teams and drove enterprise technology initiatives.</p>
+      <div class="timeline-tags">
+        <span class="tag">Program Management</span>
+        <span class="tag">Technology</span>
+        <span class="tag">Leadership</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ── Expertise ── -->
+<section id="expertise">
+  <p class="section-label fade-up">Expertise</p>
+  <h2 class="section-title fade-up d1">What I bring</h2>
+  <div class="skills-grid">
+    <div class="skill-group fade-up d1">
+      <p class="skill-group-title">Cloud Architecture</p>
+      <ul class="skill-list">
+        <li>AWS infrastructure design</li>
+        <li>Serverless architectures</li>
+        <li>Containers & Kubernetes</li>
+        <li>Multi-account strategy</li>
+        <li>Disaster recovery</li>
+      </ul>
+    </div>
+    <div class="skill-group fade-up d2">
+      <p class="skill-group-title">Cloud Security</p>
+      <ul class="skill-list">
+        <li>IAM & trust policies</li>
+        <li>Least-privilege access</li>
+        <li>Encryption & TLS</li>
+        <li>Security controls</li>
+        <li>Compliance automation</li>
+      </ul>
+    </div>
+    <div class="skill-group fade-up d3">
+      <p class="skill-group-title">DevSecOps</p>
+      <ul class="skill-list">
+        <li>Harness CI/CD</li>
+        <li>Infrastructure as code</li>
+        <li>Build pipelines</li>
+        <li>Container security</li>
+        <li>Automated deployment</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ── Education ── -->
+<section id="education">
+  <p class="section-label fade-up">Education</p>
+  <h2 class="section-title fade-up d1">Academic background</h2>
+  <div class="edu-grid">
+    <div class="edu-card fade-up d1">
+      <p class="edu-year">2024</p>
+      <h3 class="edu-degree">Master of Science — Cybersecurity</h3>
+      <p class="edu-school">Concentration in cloud security, encryption, threat analysis, and enterprise defense strategies.</p>
+    </div>
+    <div class="edu-card fade-up d2">
+      <p class="edu-year">U.S. Navy</p>
+      <h3 class="edu-degree">Veteran Service</h3>
+      <p class="edu-school">Served with distinction in the United States Navy, developing discipline, leadership, and mission-critical thinking.</p>
+    </div>
+    <div class="edu-card fade-up d3">
+      <p class="edu-year">AWS Certifications</p>
+      <h3 class="edu-degree">Solutions Architect & Security</h3>
+      <p class="edu-school">AWS Solutions Architect Professional, Security Specialty, and additional cloud credentials.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ── Contact ── -->
+<section id="contact">
+  <p class="section-label fade-up">Contact</p>
+  <h2 class="section-title fade-up d1">Let's connect</h2>
+  <div class="contact-grid">
+    <div class="contact-info fade-up d2">
+      <p>For cloud infrastructure, security engineering, DevSecOps, or consulting opportunities — reach out. I typically respond within 48 hours.</p>
+      <div class="contact-links">
+        <a href="mailto:ifeanyi@example.com" class="contact-link">
+          <span class="contact-link-icon">✉</span>
+          ifeanyi@example.com
+        </a>
+        <a href="https://linkedin.com/in/ifeanyi" target="_blank" class="contact-link">
+          <span class="contact-link-icon">in</span>
+          linkedin.com/in/ifeanyi
+        </a>
+        <a href="https://github.com/Wilson-Ifeanyi" target="_blank" class="contact-link">
+          <span class="contact-link-icon">⚙</span>
+          github.com/Wilson-Ifeanyi
+        </a>
+        <a href="resume.pdf" download class="contact-link">
+          <span class="contact-link-icon">↗</span>
+          Download résumé (PDF)
+        </a>
+      </div>
+    </div>
+    <form class="contact-form fade-up d3" id="contactForm">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" placeholder="Your name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="your@email.com" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="subject">Subject</label>
+        <select id="subject">
+          <option value="">Select a topic…</option>
+          <option>Job opportunity</option>
+          <option>Consulting inquiry</option>
+          <option>General connection</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" rows="5" placeholder="What's on your mind?" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Send message →</button>
+      <div class="form-success" id="formSuccess">
+        ✓ Thanks for reaching out — I'll be in touch soon.
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>© 2026 Ifeanyi Wilson Okafor · AWS Cloud Security Architect</p>
+</footer>
+
+<script>
+  // Nav scroll shadow
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // Scroll-triggered fade-up animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Fire intro animations immediately on load
+  window.addEventListener('load', () => {
+    document.querySelectorAll('#intro .fade-up').forEach(el => {
+      setTimeout(() => el.classList.add('visible'), 80);
+    });
+  });
+
+  // Contact form mock submit
+  document.getElementById('contactForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const btn = e.target.querySelector('.btn-primary');
+    const success = document.getElementById('formSuccess');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+    setTimeout(() => {
+      success.style.display = 'block';
+      e.target.reset();
+      btn.textContent = 'Send message →';
+      btn.disabled = false;
+    }, 900);
+  });
+</script>
+
 </body>
 </html>
