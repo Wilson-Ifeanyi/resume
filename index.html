@@ -323,7 +323,7 @@
       letter-spacing: 0.02em;
     }
 
-    .expertise-grid, .approach-grid {
+    .expertise-grid, .approach-grid, .impact-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 1.2rem;
@@ -358,7 +358,7 @@
     }
     .skill-list li:last-child { border-bottom: none; padding-bottom: 0; }
 
-    .approach-intro {
+    .approach-intro, .impact-intro {
       max-width: 700px;
       font-size: 1.05rem;
       color: var(--muted);
@@ -367,16 +367,25 @@
       line-height: 1.8;
     }
 
-    .approach-card-title {
+    .approach-card-title, .impact-card-title {
       font-size: 1.35rem;
       margin-bottom: 0.6rem;
     }
 
-    .approach-card-desc {
+    .approach-card-desc, .impact-card-desc {
       font-size: 0.95rem;
       color: var(--muted);
       font-weight: 300;
       line-height: 1.75;
+    }
+
+    .impact-metric {
+      display: block;
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem;
+      letter-spacing: -0.04em;
+      color: var(--ink);
+      margin-bottom: 0.45rem;
     }
 
     .edu-grid {
@@ -510,7 +519,7 @@
 
     @media (max-width: 820px) {
       .nav-links { display: none; }
-      .two-col, .contact-grid, .expertise-grid, .approach-grid, .edu-grid { grid-template-columns: 1fr; }
+      .two-col, .contact-grid, .expertise-grid, .approach-grid, .impact-grid, .edu-grid { grid-template-columns: 1fr; }
       .stats { grid-template-columns: 1fr 1fr; }
       .form-row { grid-template-columns: 1fr; }
     }
@@ -533,6 +542,7 @@
         <li><a href="#experience">Experience</a></li>
         <li><a href="#expertise">Expertise</a></li>
         <li><a href="#approach">Approach</a></li>
+        <li><a href="#impact">Impact</a></li>
         <li><a href="#education">Education</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -713,6 +723,31 @@
           <p class="card-title">Step 03</p>
           <h3 class="approach-card-title">Secure & Evolve</h3>
           <p class="approach-card-desc">I maintain and enhance security posture through ongoing IAM design, vulnerability remediation, and security automation. Through incident analysis and continuous improvement, I help organizations evolve their infrastructure to meet changing business needs.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="impact">
+      <p class="section-label fade">Impact</p>
+      <h2 class="section-heading fade">Programs that moved the needle</h2>
+      <p class="impact-intro fade">Across enterprise systems, I led programs that improved resilience, reduced operational cost, and accelerated delivery while strengthening security and operational visibility.</p>
+      <div class="impact-grid">
+        <div class="card fade">
+          <span class="impact-metric">42%</span>
+          <h3 class="impact-card-title">Infrastructure Cost Reduction</h3>
+          <p class="impact-card-desc">Provisioned and automated enterprise infrastructure using CloudFormation and Terraform to standardize environments and improve efficient resource utilization across critical platforms.</p>
+        </div>
+        <div class="card fade">
+          <span class="impact-metric">98%</span>
+          <h3 class="impact-card-title">Disaster Recovery Reliability</h3>
+          <p class="impact-card-desc">Developed and automated disaster recovery systems for 32 applications, creating highly reliable traffic transfer and recovery procedures for production continuity.</p>
+        </div>
+        <div class="card fade">
+          <span class="impact-metric">95%</span>
+          <h3 class="impact-card-title">Deployment Frequency Improvement</h3>
+          <p class="impact-card-desc">Designed and implemented fully automated CI/CD pipelines that reduced deployment time, streamlined delivery, and increased release cadence across strategic applications.</p>
         </div>
       </div>
     </section>
