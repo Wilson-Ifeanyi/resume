@@ -204,18 +204,10 @@
       aspect-ratio: 3 / 4;
       padding: 0.55rem;
       border-radius: 18px;
-      background: linear-gradient(135deg, rgba(255,255,255,0.7), rgba(255,255,255,0.2));
-      border: 1px solid rgba(255,255,255,0.3);
-      box-shadow: 0 14px 28px rgba(17, 28, 50, 0.12);
+      background: #ffffff;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
       overflow: hidden;
-    }
-
-    .portrait-frame::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at center, rgba(255,255,255,0.3), rgba(255,255,255,0.05) 48%, rgba(0,0,0,0.15));
-      pointer-events: none;
     }
 
     .portrait-frame img {
@@ -622,7 +614,7 @@
       <div class="hero-copy fade">
         <p class="eyebrow">Cloud Security Architect • Infrastructure Architect • DevSecOps Engineer</p>
         <h1 class="hero-name">Ifeanyi <em>Wilson Okafor</em></h1>
-        <p class="hero-tagline">Senior Cloud Security and Infrastructure Architect with 15+ years of experience spanning cloud architecture, AWS infrastructure, DevOps, DevSecOps, CI/CD, application modernization, and production reliability.</p>
+        <p class="hero-tagline">Senior Cloud Security and Infrastructure Architect with 15+ years of experience spanning cloud architecture, AWS infrastructure, DevOps, DevSecOps, CI/CD, application modernization, and enterprise security.</p>
         <div class="cta-row">
           <a href="#contact" class="btn primary">Get in touch</a>
           <a href="#experience" class="btn secondary">View experience</a>
@@ -644,8 +636,8 @@
       <h2 class="section-heading fade">A bit about me.</h2>
       <div class="two-col">
         <div class="copy fade">
-          <p>I design, secure, migrate, modernize and optimize AWS environments for enterprise applications across development, disaster recovery, staging, and production. My focus is building resilient, scalable infrastructure that supports business continuity and secure digital transformation.</p>
-          <p>I bridge enterprise architecture, cybersecurity, application engineering, and operations—translating business requirements into secure and cost-effective cloud solutions that improve reliability, speed, and governance.</p>
+          <p>I design, secure, migrate, modernize and optimize AWS environments for enterprise applications across development, disaster recovery, staging, and production. My focus is building resilient, cost-effective, and secure infrastructure that supports real business outcomes.</p>
+          <p>I bridge enterprise architecture, cybersecurity, application engineering, and operations—translating business requirements into secure and cost-effective cloud solutions that improve reliability and reduce operational friction.</p>
           <p>With experience spanning United Airlines, ESPN, Northrop Grumman, and Microsoft, I bring both strategic vision and hands-on execution to modernization, automation, and cloud transformation programs.</p>
         </div>
         <div class="stats fade">
@@ -696,7 +688,7 @@
           <p class="time">10/2019 — 03/2022</p>
           <h3 class="role">AWS Solutions Architect — Consultant</h3>
           <p class="company">ESPN · Bristol, CT</p>
-          <p class="description">Designed and managed global AWS infrastructure across 12 regions and 39 sub-regions. Built resilient production systems using EC2, ALBs, Auto Scaling, EKS, RDS, Lambda, CloudFront, and centralized monitoring.</p>
+          <p class="description">Designed and managed global AWS infrastructure across 12 regions and 39 sub-regions. Built resilient production systems using EC2, ALBs, Auto Scaling, EKS, RDS, Lambda, IAM, CloudFront, and CloudWatch.</p>
           <div class="tags">
             <span class="tag">EKS</span>
             <span class="tag">Lambda</span>
@@ -711,7 +703,7 @@
           <p class="time">07/2016 — 10/2019</p>
           <h3 class="role">AWS Infrastructure Architect</h3>
           <p class="company">Northrop Grumman · Los Angeles, CA</p>
-          <p class="description">Led enterprise infrastructure architecture initiatives from requirements through design, implementation, and production delivery. Migrated critical applications from legacy infrastructure to AWS with a focus on security, cost optimization, and continuity.</p>
+          <p class="description">Led enterprise infrastructure architecture initiatives from requirements through design, implementation, and production delivery. Migrated critical applications from legacy on-premises environments to secure AWS architectures.</p>
           <div class="tags">
             <span class="tag">AWS Migration</span>
             <span class="tag">IAM</span>
@@ -726,7 +718,7 @@
           <p class="time">03/2011 — 07/2016</p>
           <h3 class="role">Business Analyst</h3>
           <p class="company">Microsoft Corporation · Redmond, WA</p>
-          <p class="description">Worked closely with stakeholders, analysts, and engineering teams to define business and technical requirements, support JAD sessions, facilitate change management, and align solution delivery with organizational priorities.</p>
+          <p class="description">Worked closely with stakeholders, analysts, and engineering teams to define business and technical requirements, support JAD sessions, facilitate change management, and drive strategic architecture planning.</p>
           <div class="tags">
             <span class="tag">Requirements</span>
             <span class="tag">JAD</span>
@@ -783,22 +775,22 @@
     <section id="approach">
       <p class="section-label fade">My Approach</p>
       <h2 class="section-heading fade">How I deliver infrastructure</h2>
-      <p class="approach-intro fade">Cloud infrastructure succeeds when it is secure, observable, and aligned with business objectives. I focus on clear architecture, disciplined automation, and effective operational governance to drive resilient delivery.</p>
+      <p class="approach-intro fade">Cloud infrastructure succeeds when it is secure, observable, and aligned with business objectives. I focus on clear architecture, disciplined automation, and continuous improvement so engineering teams can ship confidently and reliably.</p>
       <div class="approach-grid">
         <div class="card fade">
           <p class="card-title">Step 01</p>
           <h3 class="approach-card-title">Architect the Foundation</h3>
-          <p class="approach-card-desc">Through detailed requirements discovery and cloud architecture design, I establish secure, scalable infrastructure standards and multi-environment strategies for growth and resilience.</p>
+          <p class="approach-card-desc">Through detailed requirements discovery and cloud architecture design, I establish secure, scalable infrastructure standards and multi-environment strategies that support both delivery and resilience.</p>
         </div>
         <div class="card fade">
           <p class="card-title">Step 02</p>
           <h3 class="approach-card-title">Automate & Operationalize</h3>
-          <p class="approach-card-desc">I implement Infrastructure as Code, CI/CD pipelines, and observability systems to enable consistent, reliable deployments. Automation reduces manual toil and strengthens governance.</p>
+          <p class="approach-card-desc">I implement Infrastructure as Code, CI/CD pipelines, and observability systems to enable consistent, reliable deployments. Automation reduces manual toil and accelerates change with lower operational risk.</p>
         </div>
         <div class="card fade">
           <p class="card-title">Step 03</p>
           <h3 class="approach-card-title">Secure & Evolve</h3>
-          <p class="approach-card-desc">I maintain and enhance security posture through ongoing IAM design, vulnerability remediation, and security automation. Through incident analysis and continuous improvement, I help teams evolve safely.</p>
+          <p class="approach-card-desc">I maintain and enhance security posture through ongoing IAM design, vulnerability remediation, and security automation. Through incident analysis and continuous review, I help teams stay secure while evolving at speed.</p>
         </div>
       </div>
     </section>
@@ -813,17 +805,17 @@
         <div class="card fade">
           <span class="impact-metric">42%</span>
           <h3 class="impact-card-title">Infrastructure Cost Optimization</h3>
-          <p class="impact-card-desc">Optimized enterprise AWS infrastructure, improving resource utilization, eliminating configuration drift, and optimizing costs across critical environments.</p>
+          <p class="impact-card-desc">Optimized enterprise AWS infrastructure, improving resource utilization, eliminating configuration drift, and reducing costs across critical environments.</p>
         </div>
         <div class="card fade">
           <span class="impact-metric">98%</span>
           <h3 class="impact-card-title">Disaster Recovery Reliability</h3>
-          <p class="impact-card-desc">Designed, built, and automated disaster recovery systems for 63 applications, achieving 98% improvement in RTO and reliability while ensuring uninterrupted production continuity.</p>
+          <p class="impact-card-desc">Designed, built, and automated disaster recovery systems for 63 applications, achieving 98% improvement in RTO and reliability while ensuring uninterrupted production operations.</p>
         </div>
         <div class="card fade">
           <span class="impact-metric">61%</span>
           <h3 class="impact-card-title">Deployment Frequency Improvement</h3>
-          <p class="impact-card-desc">Designed and implemented fully automated CI/CD pipelines that reduced deployment time by 61%, streamlined delivery, and increased release cadence across strategic applications.</p>
+          <p class="impact-card-desc">Designed and implemented fully automated CI/CD pipelines that reduced deployment time by 61%, streamlined delivery, and increased release cadence across strategic platforms.</p>
         </div>
       </div>
     </section>
