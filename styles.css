@@ -1,137 +1,43 @@
-```css
 /* =========================================================
-   HERO — JOSHUA PALLISER STYLE
-   ========================================================= */
-
-#intro {
-  position: relative;
-
-  width: min(100% - 48px, var(--max));
-  min-height: calc(100vh - 72px);
-
-  margin: 0 auto;
-
-  display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-
-  gap: 70px;
-
-  align-items: center;
-
-  padding: 80px 0;
-}
-
-
-/* =========================================================
-   HERO COPY — LEFT SIDE
-   ========================================================= */
-
-.hero-copy {
-  position: relative;
-  z-index: 2;
-
-  max-width: 720px;
-}
-
-.eyebrow {
-  color: var(--accent);
-
-  font-size: 13px;
-  font-weight: 700;
-
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-
-  margin-bottom: 18px;
-}
-
-.hero-name {
-  font-size: clamp(52px, 6vw, 82px);
-
-  line-height: 0.98;
-
-  letter-spacing: -0.045em;
-
-  margin-bottom: 28px;
-}
-
-.hero-name em {
-  display: block;
-
-  font-style: normal;
-
-  color: var(--accent);
-}
-
-.hero-tagline {
-  max-width: 680px;
-
-  color: var(--muted);
-
-  font-size: 18px;
-
-  line-height: 1.75;
-
-  margin-bottom: 34px;
-}
-
-
-/* =========================================================
-   PORTRAIT — RIGHT SIDE
+   CIRCULAR PROFILE PHOTO — PALLISER STYLE
    ========================================================= */
 
 .portrait-wrap {
   position: relative;
 
   width: 100%;
-
   height: 620px;
 
   display: flex;
-
   align-items: center;
-
   justify-content: center;
 
   z-index: 1;
 }
 
-
-/*
-   Large portrait frame similar to the visual treatment
-   of the reference site.
-*/
-
 .portrait-frame {
   position: relative;
 
-  width: min(100%, 480px);
+  width: 500px;
+  height: 500px;
 
-  height: 600px;
+  max-width: 100%;
 
   overflow: hidden;
 
-  border-radius: 18px;
+  border-radius: 50%;
 
-  border: 1px solid var(--line);
+  border: 1px solid rgba(99, 214, 255, 0.25);
 
   background: var(--panel);
 
   box-shadow:
-    0 35px 90px rgba(0, 0, 0, 0.40),
-    0 0 0 1px rgba(99, 214, 255, 0.04);
-
+    0 30px 80px rgba(0, 0, 0, 0.40),
+    0 0 60px rgba(99, 214, 255, 0.08);
 }
-
-
-/*
-   Your actual image:
-   <img src="profile.jpg" ... />
-*/
 
 .portrait-frame img {
   width: 100%;
-
   height: 100%;
 
   display: block;
@@ -139,128 +45,36 @@
   object-fit: cover;
 
   /*
-     Adjust this if you want your face positioned
-     slightly higher/lower inside the frame.
+     Adjust this if your head needs to move
+     slightly up/down inside the circle.
   */
   object-position: center top;
 }
 
 
-/*
-   Very subtle dark overlay at the bottom.
-   This gives the photo a more polished,
-   integrated appearance without changing the photo.
-*/
-
-.portrait-frame::after {
-  content: "";
-
-  position: absolute;
-
-  inset: 0;
-
-  pointer-events: none;
-
-  background:
-    linear-gradient(
-      180deg,
-      transparent 55%,
-      rgba(7, 16, 24, 0.12) 75%,
-      rgba(7, 16, 24, 0.35) 100%
-    );
-}
-
-
-/* =========================================================
-   OPTIONAL PHOTO GLOW
-   ========================================================= */
+/* Subtle glow behind the circular photo */
 
 .portrait-wrap::before {
   content: "";
 
   position: absolute;
 
-  width: 430px;
-
-  height: 430px;
+  width: 540px;
+  height: 540px;
 
   border-radius: 50%;
 
   background:
     radial-gradient(
       circle,
-      rgba(99, 214, 255, 0.12),
-      rgba(99, 214, 255, 0.025) 55%,
+      rgba(99, 214, 255, 0.13) 0%,
+      rgba(99, 214, 255, 0.04) 50%,
       transparent 72%
     );
 
-  filter: blur(10px);
+  filter: blur(8px);
 
   z-index: -1;
-}
-
-
-/* =========================================================
-   BUTTONS
-   ========================================================= */
-
-.cta-row {
-  display: flex;
-
-  flex-wrap: wrap;
-
-  gap: 12px;
-}
-
-.btn {
-  display: inline-flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  min-height: 46px;
-
-  padding: 0 20px;
-
-  border-radius: 8px;
-
-  font-size: 14px;
-
-  font-weight: 700;
-
-  transition:
-    transform 0.2s ease,
-    background 0.2s ease,
-    border-color 0.2s ease;
-}
-
-.btn:hover {
-  transform: translateY(-2px);
-}
-
-.btn.primary {
-  background: var(--accent);
-
-  color: #061018;
-}
-
-.btn.primary:hover {
-  background: #8ae2ff;
-}
-
-.btn.secondary {
-  border: 1px solid var(--line);
-
-  background: var(--panel);
-
-  color: var(--text);
-}
-
-.btn.secondary:hover {
-  border-color: var(--accent);
-
-  color: var(--accent);
 }
 
 
@@ -270,24 +84,18 @@
 
 @media (max-width: 950px) {
 
-  #intro {
-    grid-template-columns: 1fr 0.8fr;
-
-    gap: 40px;
-  }
-
   .portrait-wrap {
-    height: 520px;
-  }
-
-  .portrait-frame {
-    width: 100%;
-
     height: 500px;
   }
 
-  .hero-name {
-    font-size: clamp(48px, 7vw, 68px);
+  .portrait-frame {
+    width: 400px;
+    height: 400px;
+  }
+
+  .portrait-wrap::before {
+    width: 440px;
+    height: 440px;
   }
 
 }
@@ -300,58 +108,33 @@
 @media (max-width: 720px) {
 
   #intro {
-    min-height: auto;
-
     grid-template-columns: 1fr;
 
-    gap: 55px;
+    gap: 45px;
 
     padding: 70px 0;
-  }
-
-
-  /*
-     On mobile the image moves underneath
-     the introduction, rather than staying
-     beside it.
-  */
-
-  .portrait-wrap {
-    order: 2;
-
-    width: 100%;
-
-    height: 480px;
-  }
-
-  .portrait-frame {
-    width: min(100%, 360px);
-
-    height: 450px;
-
-    margin: 0 auto;
   }
 
   .hero-copy {
     order: 1;
   }
 
-  .hero-name {
-    font-size: clamp(44px, 13vw, 62px);
+  .portrait-wrap {
+    order: 2;
+
+    height: auto;
+
+    padding: 20px 0 40px;
   }
 
-  .hero-tagline {
-    font-size: 16px;
+  .portrait-frame {
+    width: min(78vw, 360px);
+    height: min(78vw, 360px);
   }
 
-  .cta-row {
-    flex-direction: column;
-
-    align-items: stretch;
-  }
-
-  .btn {
-    width: 100%;
+  .portrait-wrap::before {
+    width: min(88vw, 410px);
+    height: min(88vw, 410px);
   }
 
 }
@@ -363,19 +146,9 @@
 
 @media (max-width: 450px) {
 
-  #intro {
-    padding-top: 50px;
-  }
-
-  .portrait-wrap {
-    height: 400px;
-  }
-
   .portrait-frame {
-    height: 380px;
-
-    border-radius: 14px;
+    width: 290px;
+    height: 290px;
   }
 
 }
-```
