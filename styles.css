@@ -1,10 +1,10 @@
+```css
 /* =========================================================
-   CIRCULAR PROFILE PHOTO — PALLISER STYLE
+   CIRCULAR PROFILE PHOTO — CLEAN / TRANSPARENT
    ========================================================= */
 
 .portrait-wrap {
   position: relative;
-
   width: 100%;
   height: 620px;
 
@@ -15,21 +15,21 @@
   z-index: 1;
 }
 
+/* Circular photo container */
 .portrait-frame {
   position: relative;
 
   width: 500px;
   height: 500px;
-
   max-width: 100%;
 
   overflow: hidden;
-
   border-radius: 50%;
 
-  border: 1px solid rgba(99, 214, 255, 0.25);
+  /* Keep the frame transparent */
+  background: transparent;
 
-  background: var(--panel);
+  border: 1px solid rgba(99, 214, 255, 0.25);
 
   box-shadow:
     0 30px 80px rgba(0, 0, 0, 0.40),
@@ -43,16 +43,16 @@
   display: block;
 
   object-fit: cover;
-
-  /*
-     Adjust this if your head needs to move
-     slightly up/down inside the circle.
-  */
   object-position: center top;
+
+  /* Prevent any unexpected background effects */
+  background: transparent;
 }
 
 
-/* Subtle glow behind the circular photo */
+/* =========================================================
+   SUBTLE CIRCULAR GLOW
+   ========================================================= */
 
 .portrait-wrap::before {
   content: "";
@@ -97,7 +97,6 @@
     width: 440px;
     height: 440px;
   }
-
 }
 
 
@@ -109,9 +108,7 @@
 
   #intro {
     grid-template-columns: 1fr;
-
     gap: 45px;
-
     padding: 70px 0;
   }
 
@@ -121,9 +118,7 @@
 
   .portrait-wrap {
     order: 2;
-
     height: auto;
-
     padding: 20px 0 40px;
   }
 
@@ -136,7 +131,6 @@
     width: min(88vw, 410px);
     height: min(88vw, 410px);
   }
-
 }
 
 
@@ -150,5 +144,5 @@
     width: 290px;
     height: 290px;
   }
-
 }
+```
